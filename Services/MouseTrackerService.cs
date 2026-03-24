@@ -35,9 +35,8 @@ public class MouseTrackerService : IDisposable
     private void OnTick(object? sender, EventArgs e)
     {
         var p = Cursor.Position;
-        var isNearTop = p.Y <= 1;
         var isNearRight = p.X >= _screenWidth - 1 && p.Y >= 0 && p.Y <= _screenHeight;
-        EdgeStateChanged?.Invoke(this, isNearTop || isNearRight);
+        EdgeStateChanged?.Invoke(this, isNearRight);
     }
 
     public void Dispose()
